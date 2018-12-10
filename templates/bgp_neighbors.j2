@@ -51,10 +51,6 @@ router bgp {{ bgp_as }}
 
     neighbor {{ name }} route-reflector-client
 
-{% else %}
-
-    no neighbor {{ name }} route-reflector-client
-
 {% endif %}
 
 {# configure neighbor BFD failure detection #}
