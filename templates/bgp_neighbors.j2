@@ -81,6 +81,13 @@ router bgp {{ bgp_as }}
 
 {% endif %}
 
+{# configure allowas-in #}
+{% if neighbor.allowas_in is defined and neighbor.allowas_in %}
+
+   neighbor {{ name }} allowas-in {{ neighbor.allowas_in_asn_quantity | default("") }}
+
+{% endif %}
+
 {# configure neighbor shutdown state #}
 {% if neighbor.enable %}
 
